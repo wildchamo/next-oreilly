@@ -12,9 +12,10 @@ import { SunIcon, MoonIcon, SunMoonIcon } from "lucide-react";
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+const themes = ["system", "dark", "light"];
 
 export const ModeToggle = () => {
-  const { theme, setTheme } = useTheme();
+  const { theme: currentTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -27,15 +28,30 @@ export const ModeToggle = () => {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="icon">
-          {theme === "system" ? (
+          {currentTheme === "system" ? (
             <SunMoonIcon />
-          ) : theme === "dark" ? (
+          ) : currentTheme === "dark" ? (
             <MoonIcon />
           ) : (
             <SunIcon />
           )}
         </Button>
       </DropdownMenuTrigger>
+      <DropdownMenuContent>
+        <DropdownMenuLabel>Appearance</DropdownMenuLabel>
+        <DropdownMenuSeparator />
+        {themes.map((theme) => (
+          <DropdownMenuCheckboxItem
+            key={theme}
+            checked={theme === currentTheme}
+            onCheckedChange={(checked) => {
+              if (checked) setTheme(theme);
+            }}
+          >
+            {theme}
+          </DropdownMenuCheckboxItem>
+        ))}
+      </DropdownMenuContent>
     </DropdownMenu>
   );
 };
