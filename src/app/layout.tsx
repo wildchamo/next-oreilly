@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { APP_NAME, APP_DESCRIPTION } from "@/lib/constants";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -8,8 +9,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Pro Store",
-  description: "modern ecommerce platform built with next.js",
+  title: {
+    template: "%s | " + APP_NAME,
+    default: APP_NAME,
+  },
+  description: APP_DESCRIPTION,
 };
 
 export default function RootLayout({
