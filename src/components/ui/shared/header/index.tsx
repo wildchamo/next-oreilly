@@ -29,7 +29,7 @@ export const Header = () => {
               <ShoppingCartIcon /> Cart
             </Link>
           </Button>
-          <Button asChild variant="ghost">
+          <Button asChild variant="default">
             <Link href="/sign-in">
               <UserIcon /> Sign In
             </Link>
