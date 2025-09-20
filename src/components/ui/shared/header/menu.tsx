@@ -3,7 +3,14 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { EllipsisVertical, ShoppingCartIcon } from "lucide-react";
 import { UserIcon } from "lucide-react";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 export const Menu = () => {
   return (
@@ -30,8 +37,23 @@ export const Menu = () => {
               <EllipsisVertical />
             </Button>
           </SheetTrigger>
-          <SheetContent>
+          <SheetContent className="flex items-start gap-2">
+            <SheetHeader>
+              <SheetTitle>Menu</SheetTitle>
+            </SheetHeader>
+
             <ModeToggle />
+
+            <Button asChild variant="ghost">
+              <Link href="/cart">
+                <ShoppingCartIcon /> Cart
+              </Link>
+            </Button>
+            <Button asChild variant="default">
+              <Link href="/sign-in">
+                <UserIcon /> Sign In
+              </Link>
+            </Button>
           </SheetContent>
         </Sheet>
       </nav>
