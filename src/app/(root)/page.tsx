@@ -1,7 +1,12 @@
-import { Button } from "@/components/ui/button";
+import sampleData from "@/db/sample-data";
+import { ProductList } from "@/components/shared/product/product-list";
 
-const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
 export default async function HomePage() {
-  // await delay(1000);
-  return <>{/* <Button>Button</Button> */}</>;
+  const products = sampleData.products;
+
+  return (
+    <>
+      <ProductList data={products} title="Top Products" />
+    </>
+  );
 }
