@@ -8,6 +8,7 @@ import {
 
 import Link from "next/link";
 import Image from "next/image";
+import { ProductPrice } from "./product-price";
 
 export const ProductCard = ({ product }: { product: any }) => {
   return (
@@ -34,7 +35,11 @@ export const ProductCard = ({ product }: { product: any }) => {
 
       <CardFooter className="flex justify-between">
         <p>Product Rating {product.rating}</p>
-        {product.stock > 0 ? <p>$ {product.price}</p> : <p>Out of Stock</p>}
+        {product.stock > 0 ? (
+          <ProductPrice price={product.price} />
+        ) : (
+          <p>Out of Stock</p>
+        )}
       </CardFooter>
     </Card>
   );
