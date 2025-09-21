@@ -14,7 +14,7 @@ export const ProductList = ({ data, title }: { data: any; title?: string }) => {
             ))}
           </div>
         ) : (
-          ""
+          "No products found"
         )}
       </section>
     </div>
