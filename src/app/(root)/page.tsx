@@ -6,7 +6,7 @@ export default async function HomePage() {
 
   return (
     <>
-      <ProductList data={products} title="Top Products" />
+      <ProductList data={products} title="Top Products" limit={4} />
     </>
   );
 }
