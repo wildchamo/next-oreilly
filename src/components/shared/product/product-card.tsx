@@ -36,7 +36,7 @@ export const ProductCard = ({ product }: { product: any }) => {
       <CardFooter className="flex justify-between">
         <p>Product Rating {product.rating}</p>
         {product.stock > 0 ? (
-          <ProductPrice price={product.price} />
+          <ProductPrice price={Number(product.price)} />
         ) : (
           <p>Out of Stock</p>
         )}
